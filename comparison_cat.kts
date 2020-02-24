@@ -1,1 +1,1 @@
-package laba.comparison
+package laba

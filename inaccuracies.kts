@@ -1,1 +1,1 @@
-package laba.inaccuracies
+package laba
