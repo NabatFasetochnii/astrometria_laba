@@ -26,9 +26,9 @@ fun main() {
     systematize(tStars)
 
     for (i in 0..287) {
-        uStars.deSys[i] = MutableList(tStars.deSys.size) { 0 }
-        uStars.raSys[i] = MutableList(tStars.raSys.size) { 0 }
-        uStars.magVSys[i] = MutableList(tStars.magVSys.size) { 0f }
+        uStars.deSys[i] = MutableList(tStars.deSys[i].size) { 0 }
+        uStars.raSys[i] = MutableList(tStars.raSys[i].size) { 0 }
+        uStars.magVSys[i] = MutableList(tStars.magVSys[i].size) { 0f }
     }
 
     println(tStars.dE.size)

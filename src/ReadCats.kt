@@ -25,10 +25,10 @@ class ReadCats {
 
                     ra = Integer.reverseBytes(stream.readInt())
                     de = Integer.reverseBytes(stream.readInt())
-                    mag = (java.lang.Short.reverseBytes(stream.readShort()) / 100).toFloat()
+                    mag = java.lang.Short.reverseBytes(stream.readShort()) / 100f
 
-                    println("$mag - mag")
-                    println(tStars.magVSys[i][j])
+//                    println("$mag - mag")
+//                    println(tStars.magVSys[i][j])
 
                     if (abs(tStars.raSys[i][j] - ra) < 1000
                         && abs(tStars.deSys[i][j] - de) < 1000
