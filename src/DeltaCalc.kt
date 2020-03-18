@@ -22,7 +22,11 @@ class DeltaCalc {
 
     }
 
-    fun deltaGridA() {
+    fun deltaGridA(){
+
+    }
+
+    fun deltaGridD() {
 
         var deltaA = 0.0
         var deltaD = 0.0
@@ -30,13 +34,13 @@ class DeltaCalc {
 
         for (i in 0..8) {
             for (j in i * 30..30 * (i + 1)) {
-                for (k in i * 30..30 * (i + 1)){
-                    s+= dA[k].size
+                for (k in i * 30..30 * (i + 1)) {
+                    s += dA[k].size
                 }
 
                 for (p in 0 until dA[j].size) {
                     for (h in dA[j]) {
-                        deltaA +=  h / s
+                        deltaA += h / s
                     }
 
                     for (h in dD[j]) {
@@ -51,7 +55,7 @@ class DeltaCalc {
     }
 }
 
-fun dCal(deltaA: Double, deltaD: Double){
+fun dCal(deltaA: Double, deltaD: Double) {
 
     for (j in 0 until dA.size) {
         for (i in 0 until dA[j].size) {

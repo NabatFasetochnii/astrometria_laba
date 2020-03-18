@@ -28,7 +28,7 @@ fun main() {
 
     systematize(tStars)
 
-    for (i in 0..287) {
+    for (i in 0..287)   {
         uStars.deSys[i] = MutableList(tStars.deSys[i].size) { 0 }
         uStars.raSys[i] = MutableList(tStars.raSys[i].size) { 0 }
         uStars.magVSys[i] = MutableList(tStars.magVSys[i].size) { 0f }
@@ -65,7 +65,6 @@ fun main() {
     thread3.start()
     for (i in 3 until 288 step 4) {
         pc.cal(i, tStars, uStars, read)
-
     }
 
     thread1.join()
@@ -79,6 +78,7 @@ fun main() {
 
     deltaCalc.bigSysDelta()
     deltaCalc.deltaGridA()
+    deltaCalc.deltaGridD()
 
     runTime -= System.nanoTime()
     runTime /= -1_000_000L
