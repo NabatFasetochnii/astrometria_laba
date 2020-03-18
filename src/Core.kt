@@ -6,6 +6,8 @@ class Core {
         const val PATH_UCAC2 = "C:\\Users\\Nikita\\IdeaProjects\\astrometria_laba\\src\\ucac2\\1cd\\u2\\z"
         var pairs = 0
 //        var o = 0
+        var dA: MutableList<Double> = mutableListOf()
+        var dD: MutableList<Double> = mutableListOf()
     }
 }
 
@@ -17,11 +19,9 @@ fun main() {
     val uStars = Stars()
     val read = ReadCats()
     val pc = PairCalculation()
+    val deltaCalc = DeltaCalc()
 
     read.readTYCO(PATH_TYCO2, tStars)
-
-//    tStars.RaSys =
-//    tStars.DeSys.addAll(MutableList(288) { mutableListOf()})
 
     systematize(tStars)
 
@@ -30,9 +30,6 @@ fun main() {
         uStars.raSys[i] = MutableList(tStars.raSys[i].size) { 0 }
         uStars.magVSys[i] = MutableList(tStars.magVSys[i].size) { 0f }
     }
-
-    println(tStars.dE.size)
-
     val runnable1 = Runnable {
 
         for (i in 0 until 288 step 4) {
@@ -62,7 +59,6 @@ fun main() {
     thread1.start()
     thread2.start()
     thread3.start()
-
     for (i in 3 until 288 step 4) {
         pc.cal(i, tStars, uStars, read)
 
@@ -71,6 +67,8 @@ fun main() {
     thread1.join()
     thread2.join()
     thread3.join()
+
+    deltaCalc.bigSysDelta()
 
     runTime -= System.nanoTime()
     runTime /= -1_000_000L

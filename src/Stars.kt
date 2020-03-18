@@ -7,5 +7,5 @@ class Stars {
      var deSys: MutableList<MutableList<Int>> = MutableList(288){ MutableList(0){0} }
      var raSys: MutableList<MutableList<Int>> = MutableList(288){MutableList(0){0} }
      var magVSys: MutableList<MutableList<Float>> = MutableList(288){MutableList(0){0f} }
-
+     
 }

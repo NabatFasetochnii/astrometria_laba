@@ -1,3 +1,5 @@
+import Core.Companion.dA
+import Core.Companion.dD
 import Core.Companion.pairs
 import java.io.DataInputStream
 import java.io.File
@@ -27,9 +29,6 @@ class ReadCats {
                     de = Integer.reverseBytes(stream.readInt())
                     mag = java.lang.Short.reverseBytes(stream.readShort()) / 100f
 
-//                    println("$mag - mag")
-//                    println(tStars.magVSys[i][j])
-
                     if (abs(tStars.raSys[i][j] - ra) < 1000
                         && abs(tStars.deSys[i][j] - de) < 1000
                         && abs(tStars.magVSys[i][j] - mag) < 1
@@ -37,6 +36,9 @@ class ReadCats {
                         uStars.raSys[i].add(j, ra)
                         uStars.deSys[i].add(j, de)
                         uStars.magVSys[i].add(j, mag)
+                        dA.add((tStars.raSys[i][j] - ra).toDouble())
+                        dD.add((tStars.deSys[i][j] - de).toDouble())
+                        //dM.add((tStars.magSys[i][j] - mag).toDouble())
                         pairs++
                         print(pairs)
                         println(" - pairs")
@@ -53,10 +55,7 @@ class ReadCats {
                     }
                 } catch (ex: IOException) {
                     /* o++
-                             println("Поймал исключение IOException $o раз")*/
-//                    stream.reset()
-//                    println("Поймал исключение IOException")
-
+                       println("Поймал исключение IOException $o раз")*/
                     if (stream.available() == 0) {
                         stream.reset()
                         b = false
