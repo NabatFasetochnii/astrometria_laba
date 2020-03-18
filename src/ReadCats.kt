@@ -19,7 +19,6 @@ class ReadCats {
         stream.mark(50_000_000)
 
         for (j in 0 until tStars.raSys[i].size) {
-
             b = true
 
             while (b) {
@@ -36,8 +35,8 @@ class ReadCats {
                         uStars.raSys[i].add(j, ra)
                         uStars.deSys[i].add(j, de)
                         uStars.magVSys[i].add(j, mag)
-                        dA.add((tStars.raSys[i][j] - ra).toDouble())
-                        dD.add((tStars.deSys[i][j] - de).toDouble())
+                        dA[i].add(j, (tStars.raSys[i][j] - ra).toDouble())
+                        dD[i].add(j, (tStars.deSys[i][j] - de).toDouble())
                         //dM.add((tStars.magSys[i][j] - mag).toDouble())
                         pairs++
                         print(pairs)
@@ -47,7 +46,6 @@ class ReadCats {
                         } catch (e: Exception) {
                             println("reset is not working........")
                         }
-
                         b = false
 //                    break
                     } else {
@@ -63,14 +61,9 @@ class ReadCats {
                         stream.skip(skipB)
                     }
                 }
-
             }
-
         }
     }
-
-
-    //TODO mag
 
     fun readTYCO(PATH_TYCO2: String, tStars: Stars) {
 
@@ -95,15 +88,10 @@ class ReadCats {
                     tStars.rA.add(ra.toInt())
                     tStars.dE.add(de.toInt())
                     tStars.magV.add(v - 0.09f * (b - v))
-
-                    //TODO mag
-
                 }
             } catch (e: Exception) { /*println("exception in forEachLine")*/
             }
         }
-
-
 //54deg
     }
 
