@@ -3,12 +3,13 @@ import java.io.BufferedInputStream
 import java.io.DataInputStream
 import java.io.File
 
-class PairCalculation {
+class PairCalculation { //Класс нахождения общих звёзд
 
     fun cal(i: Int, tStars: Stars, uStars: Stars, readCats: ReadCats) {
 
-        val z = i + 1
-        var s = "$z"
+        val z = i + 1 //Нумерация файлов начинается с 1, а массивов с 0,
+        // поэтому нужно компенсировать эту разницу
+        var s = "$z" //переводим номер зоны в строку и при необходимости добавляем ей нужное кол-во нулей
 
         if (z in 1..9) {
             s = "00$z"
@@ -16,9 +17,10 @@ class PairCalculation {
             s = "0$z"
         }
         val stream = DataInputStream(BufferedInputStream((File("$PATH_UCAC2$s").inputStream())))
-        readCats.readUCAC(tStars, i, uStars, stream)
+        //Открываем файловый поток для той зоны, которую хотим обработать
+        readCats.readUCAC(tStars, i, uStars, stream) //Читаем нужный файл в классе для чтения и записи
 
-        stream.close()
+        stream.close() //закрываем поток
 
     }
 }
